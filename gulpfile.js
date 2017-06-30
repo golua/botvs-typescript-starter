@@ -6,8 +6,7 @@ const commonjs = require('rollup-plugin-commonjs')
 const uglify = require('rollup-plugin-uglify')
 
 const strategyList = [
-    '倒币',
-    '计时器',
+    'HelloWorld'
 ]
 
 function generateRollupTypeScriptTask(name) {
