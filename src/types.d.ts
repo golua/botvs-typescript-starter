@@ -22,7 +22,7 @@ declare namespace BotVS {
         Log(type: number, orderId: number, price: number, amount: number): void
         CancelOrder(orderId: number): boolean
         Go(method: string, ...args: any[]): void
-        IO(type: 'websocket' | 'rest', ...args: any[]): void
+        IO(type: string, ...args: any[]): void
     }
 
     interface Record {
