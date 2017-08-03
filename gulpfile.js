@@ -1,33 +1,33 @@
 const gulp = require('gulp')
 const rollup = require('rollup')
-const rollupTypescript = require('rollup-plugin-typescript')
+const rollupTypescript = require('rollup-plugin-typescript2')
 const nodeResolve = require('rollup-plugin-node-resolve')
-const commonjs = require('rollup-plugin-commonjs')
+const commonjs = require('@rollup/plugin-commonjs')
 const uglify = require('rollup-plugin-uglify')
 
 const strategyList = [
-    'HelloWorld'
+    'CrossMA65'
 ]
 
 function generateRollupTypeScriptTask(name) {
     return rollup.rollup({
-        entry: './src/' + name + '.ts',
+        input: './src/' + name + '.ts',
         plugins: [
             rollupTypescript(),
             nodeResolve({ jsnext: true, main: true }),
             commonjs({
                 include: 'node_modules/**'
             }),
-            uglify()
+            // uglify()
         ],
     })
-        .then(function (bundle) {
-            bundle.write({
-                format: 'iife',
-                moduleName: 'main',
-                dest: './dist/' + name + '.js'
-            });
-        })
+    .then(function (bundle) {
+        bundle.write({
+            format: 'iife',
+            name: 'main',
+            file: './dist/' + name + '.js'
+        });
+    })
 }
 
 gulp.task('default', function () {
@@ -35,5 +35,5 @@ gulp.task('default', function () {
 })
 
 gulp.task('watch', function () {
-    gulp.watch(['./src/**/*.ts'], ['default'])
+    gulp.watch(['./src/**/*.ts'], gulp.series('default'))
 })
