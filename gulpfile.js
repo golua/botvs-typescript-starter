@@ -1,9 +1,9 @@
 const gulp = require('gulp')
 const rollup = require('rollup')
 const rollupTypescript = require('rollup-plugin-typescript2')
-const nodeResolve = require('rollup-plugin-node-resolve')
+const { nodeResolve } = require('@rollup/plugin-node-resolve')
 const commonjs = require('@rollup/plugin-commonjs')
-const uglify = require('rollup-plugin-uglify')
+const { terser } = require('rollup-plugin-terser')
 
 const strategyList = [
     'CrossMA65'
@@ -18,7 +18,7 @@ function generateRollupTypeScriptTask(name) {
             commonjs({
                 include: 'node_modules/**'
             }),
-            // uglify()
+            terser(),
         ],
     })
     .then(function (bundle) {
