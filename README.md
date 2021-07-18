@@ -1,11 +1,11 @@
-# botvs typescript 开发模板工程
+# batman
 
-纯使用 JavaScript 编写策略总会遇到：运行时错误、语法错误、没有代码提示、反复查找文档等诸多问题。特别是在策略代码复杂度增高之后，如果有模板方法更改，就更难以维护了。 TypeScript 是一种给 JavaScript 加上类型声明的语言，可以非常优雅的解决上述问题，让策略的维护更加方便。
+TypeScript 是一种给 JavaScript 加上类型声明的语言，可以非常优雅的解决上述问题，让策略的维护更加方便。
 
 ## 使用方法
 
 ```
-$ git clone https://github.com/pinqy520/botvs-typescript-starter
+$ git clone https://github.com/golua/batman
 $ npm install
 $ npm run dev
 ```
